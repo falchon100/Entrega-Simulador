@@ -1,49 +1,33 @@
-/*     alert('Hola vamos a  registrarte');
-    let usuario = prompt('Elige el nombre de usuario');
-    let contraseña = prompt('Elige una contraseña');
-    
-
-    alert('Genial ahora vamos a ingresar');
-
-let usuarioIngresado = prompt('usuario');
-let contraseñIngresada = prompt('contraseña');
-
-while (usuario!== usuarioIngresado || contraseña !== contraseñIngresada) { 
-    usuarioIngresado = prompt('Ha ingresado un usuario o contraseña no valida. Ingresa el usuario')
-    contraseñIngresada = prompt('ingrese contraseña')
-}
-
-alert('Has ingresado correctamente')
-    
- */
-
-/* const valor1 = function(){
-    return prompt('ingrese usuarioo')
-}
-
-const valor2 = function(){
-    return prompt('ingrese contraseñaa')
-}
-
-valor1()
-valor2() */
 
 alert('Bienvenido vamos a registrarte')
-let valor1 = prompt('1. ingrese su usuario')
-let valor2 =prompt ('2. ingrese su contraseña')
+function registroUsuario(){
+    
+    return prompt('ingrese el nombre de usuario para poder registrarlo');
+}
+
+function registroContraseña(){
+    return prompt('ingrese su contraseña para poder registrarla');
+}
 
 
-function logear(valor1,valor2){
-let usuario = prompt('usuario');
-let contraseña = prompt("contraseña");
+let usuarioRegistrado = registroUsuario();
+let contraseñaRegistrada = registroContraseña();
 
-    while (valor1 !== usuario || valor2 !== contraseña){
+alert('Perfecto! se ha registrado correctamente')
+
+function logear(usuarioRegistrado,contraseñaRegistrada){
+    let usuario = prompt('Por favor ingresa tu usuario para poder ingresar');
+    let contraseña = prompt("Por favor ingresa tu contraseña para poder ingresar");
+    
+    while (usuarioRegistrado !== usuario || contraseñaRegistrada !== contraseña){
     usuario = prompt('Ha ingresado un usuario o contraseña no valida . Ingresa el usuario');
     contraseña =prompt('ingresa una contraseña');
-}
-alert('has ingresado correctamente')
-}
+    }
+    alert('has ingresado correctamente')
+    }
+    
+    logear(usuarioRegistrado,contraseñaRegistrada)
 
-logear(valor1,valor2)
+
 
 
