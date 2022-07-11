@@ -95,7 +95,7 @@ for (let index = 0; index < listaCarrito.length; index++) {
 }
 alert(`y el monto total a pagar es : $${total}`)
 
-alert('si desea ver el detalle aprete F12')
+alert('si desea ver el detalle aprete enter y luego  F12')
 console.log(carrito);
 
 
