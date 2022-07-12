@@ -61,24 +61,24 @@ while (entrada !=0 ) {
     entrada = parseInt(prompt('Escoja los items que desea agregar \n 1)CAFE  $150 \n 2) LATE $250 \n 3) SUBMARINO $250 \n 4)FRAPUCHINO $400 \n 5)MEDIALUNA $100 \n 6)PORCION TORTA $300 \n 7) TOSTADO $250  \n    COLOQUE "0" PARA FINALIZAR"')) 
 if (entrada === 1){
     carrito.push(producto[0])
-    alert('Ha agregado un cafe')
+    alert(`ha agregado cafe que cuesta $200`)
 }else if (entrada ===2){
     carrito.push(producto[1])
-    alert('Ha agregado un late')
+    alert('Ha agregado un late que cuesta $250')
 }else if (entrada ===3){
     carrito.push(producto[2])
-    alert('Ha agregado un Submarino')
+    alert('Ha agregado un Submarino que cuesta $300')
 }else if (entrada ===4){
     carrito.push(producto[3])
-    alert('Ha agregado un Frapuchino')
+    alert('Ha agregado un Frapuchino que cuesta $400')
 }else if (entrada ===5){  
     carrito.push(producto[4])
-    alert('Ha agregado una Medialuna')
+    alert('Ha agregado una Medialuna que cuesta $200')
 }else if (entrada ===6){ 
-    alert('Ha agregado una Torta')
+    alert('Ha agregado una Torta que cuesta $250')
     carrito.push(producto[5]) 
 }else if (entrada ===7){ 
-    alert('Ha agregado un Tostado')
+    alert('Ha agregado un Tostado que cuesta $300')
     carrito.push(producto[6])     
 }
 }
@@ -86,18 +86,27 @@ if (entrada === 1){
 //Utilizo el reduce para tomar el valor de los precios de listacarrito y luego los sumo 
 let listaCarrito = carrito.map(elemento => elemento.articulo)
 let total = carrito.reduce((acumulador,elemento) => acumulador + elemento.precio,0);
-alert('los articulos que eligio fueron')
+alert('los articulos que eligio fueron:')
 
-//Genero un for para recorrer el arreglo y luego mostrarlo en alert a cada producto
+//Genero un for para recorrer el arreglo y luego mostrarlo en alert a cada producto y pongo el index+1 para poder numerar cada listado ya que arranca del 0 
 for (let index = 0; index < listaCarrito.length; index++) {
     const element = listaCarrito[index];
-    alert(element)
+    alert(`${index+1}) ${element}`)
 }
-alert(`y el monto total a pagar es : $${total}`)
+forma = parseInt( prompt(`Como quiere abonar? actualmente el monto es $${total} \n 1) Si abona en efectivo tendra un 20% de descuento \n 2) si abona con tarjeta un 10% \n 3) si abona con otra forma de pago`) )
+if (forma ===  1){
+    total = total *0.80 ;
+    alert(`El monto total a pagar es : $${total} ya que eligio abonar con efectivo`)}
+else if (forma === 2){
+    total = total *0.90;
+    alert(`El monto total a pagar es : $${total} ya que eligio abonar con tarjeta`)
+}else {
+    alert(`El monto a pagar es : $${total} ya que eligio abonar con otro medio de pago`)
+
+} 
 
 alert('si desea ver el detalle aprete enter y luego  F12')
 console.log(carrito);
-
 
 
 
