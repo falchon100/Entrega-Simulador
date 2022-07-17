@@ -1,4 +1,4 @@
-// Genero una funcion para registrar Usuario y contraseña
+/* // Genero una funcion para registrar Usuario y contraseña
 alert('Bienvenido para realizar el pedido debera estar registrado')
 function registroUsuario(){
     
@@ -110,3 +110,4 @@ console.log(carrito);
 
 
 
+ */
