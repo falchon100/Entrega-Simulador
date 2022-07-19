@@ -10,38 +10,70 @@
     <title>Document</title>
 </head>
 <body>
-<!-- <header class="d-flex aling-items-center">
-    <img class="header__logo" src="./img/cafe.jpg" alt="">
-    <ul class="d-flex">
-        <li>Menu</li>
-        <li>Promociones</li>
-        <li>Pedido Online</li>
-        <li>Quienes somos?</li>
-        <li>Contacto</li>
-    </ul>
-</header> -->
-<header> 
-    <img class="header__logo align-self-start" src="./img/cafe.jpg" alt="">
-<ul class="nav justify-content-end">
-    <li class="nav-item">
-    <a class="nav-link active" href="#">Menu</a>
+
+<header class="d-flex align-items-center justify-content-between"> 
+    <img class="header__logo  align-self-start" src="./img/cafe.jpg" alt="">
+<ul class="nav justify-content-end mx-5">
+    <li class="nav-item px-2">
+    <a  href="#">Menu</a>
     </li>
-    <li class="nav-item">
-    <a class="nav-link" href="#">Promociones</a>
+    <li class="nav-item px-2">
+    <a  href="#">Promociones</a>
     </li>
-    <li class="nav-item">
-    <a class="nav-link" href="#">Pedido Online</a>
+    <li class="nav-item px-2">
+    <a  href="#">Pedido Online</a>
     </li>
-    <li class="nav-item">
-    <a class="nav-link" href="#">Contacto</a>
+    <li class="nav-item px-2">
+    <a  href="#">Contacto</a>
     </li>
 </ul>
 </header>
 
+<section class="hero d-flex justify-content-center align-items-center">
+<div class="caja p-3">
+    <h1 id="titulo" class="text-center"> CAFE </h1>
+    <button id="registro" class="btn btn-danger">Registrar</button>
+        <a id="login" class="btn btn-danger" >Login</a>
+
+</div>
+
+</section>
+<div id="registronone" class="container d-none"> 
+
+    <form  class="text-center formulario mx-auto">
+        <h2>Registro</h2>
+        <div class="mb-3">
+        <label for="fregistro" class="form-label">Usuario</label>
+        <input type="email" class="form-control" id="fregistro" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+        <label for="contraseña" class="form-label">Contraseña</label>
+        <input type="password" class="form-control" id="contraseña">
+        </div>
+        <button type="submit" class="btn btn-primary">Ingresar</button>
+    </form>
+</div>
+
+<div id="loginnone" class="container d-none"> 
+
+    <form class="text-center formulario mx-auto">
+        <h2>Ingresar</h2>
+        <div class="mb-3">
+        <label for="login" class="form-label">Usuario</label>
+        <input type="email" class="form-control" id="login" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+        <label for="contraseña2" class="form-label">Contraseña</label>
+        <input type="password" class="form-control" id="contraseña2">
+        </div>
+        <button type="submit" class="btn btn-primary">Ingresar</button>
+    </form>
+</div>
+
 <!-- <main>
 <div class="container">
     <div class="row text-center">
-        <div class="col-12 col-lg-4"> <div class="card" style="width: 18rem;">
+        <div class="col-12 col-md-6 col-lg-4"> <div class="card" style="width: 18rem;">
             <img src="https://images.unsplash.com/photo-1534687941688-651ccaafbff8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" class="card-img-top" alt="...">
             <div class="card-body">
             <h5 class="card-title">Cafe con Leche</h5>
@@ -50,7 +82,7 @@
             <a href="#" class="btn btn-danger" >Agregar a Carrito</a>
             </div>
         </div></div>
-        <div class="col-12 col-lg-4">
+        <div class="col-12 col-md-6 col-lg-4">
             <div class="card" style="width: 18rem;">
                 <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" class="card-img-top" alt="...">
                 <div class="card-body">
@@ -60,7 +92,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-lg-4">
+        <div class="col-12 col-md-6 col-lg-4">
             <div class="card" style="width: 18rem;">
                 <img src="https://images.unsplash.com/photo-1596952954288-16862d37405b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" class="card-img-top" alt="...">
                 <div class="card-body">
@@ -106,6 +138,7 @@
 </div>
 </main> -->
 <div id ="producto-contenedor" class="container">
+    <div id="row" class="row"></div>
 <!--     <div class="row mt-5 text-center">
         <div class="col-12 col-lg-4">
             <h3>Carrito</h3>

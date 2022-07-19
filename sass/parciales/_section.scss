@@ -1,0 +1,36 @@
+.hero{
+    height: 80vh;
+    position: relative;
+    background-image: url(https://images.unsplash.com/photo-1516031068-d61e87663edc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80) ;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.hero::before{
+    content: "";
+position: absolute;
+top: 0;
+right: 0;
+bottom: 0;
+left: 0;
+background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,212,255,0) 100%);
+}
+
+#registro{
+    position: relative;
+    z-index: 1;
+}
+
+#login{
+    position: relative;
+    z-index: 2;
+}
+
+.caja{
+    background-color: grey;
+}
+
+.formulario{
+    width: 300px;
+}

@@ -1,0 +1,22 @@
+.header__logo{
+    width: 150px;
+    filter: brightness(1.1);
+    mix-blend-mode: multiply;
+    transition: transform 0.2s;
+}
+
+header{
+    background-color: $-color1;
+
+a {
+        text-decoration: none;
+        color: white;
+    }
+}
+
+#titulo{
+position: relative;
+z-index: 10;
+color: white;
+}
+

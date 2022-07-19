@@ -1,5 +1,5 @@
-/* // Genero una funcion para registrar Usuario y contraseña
-alert('Bienvenido para realizar el pedido debera estar registrado')
+// Genero una funcion para registrar Usuario y contraseña
+/* alert('Bienvenido para realizar el pedido debera estar registrado')
 function registroUsuario(){
     
     return prompt('REGISTRO: \n ingrese el nombre de usuario para poder registrarlo');
@@ -28,8 +28,8 @@ function logear(usuarioRegistrado,contraseñaRegistrada){
     }
     
     logear(usuarioRegistrado,contraseñaRegistrada)
-
-
+ */
+/* 
 // Creo un array donde tengo todos los objetos del menu
 
     const producto = [
