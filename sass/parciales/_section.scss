@@ -34,3 +34,22 @@ background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,212,255,0) 100%);
 .formulario{
     width: 300px;
 }
+
+
+.registronone1 {
+    position: absolute;
+    top: 30%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+}
+
+.loginnone{
+    position: absolute;
+    top: 30%;
+    left: 0;
+    right: 0;
+/*     bottom: 0; */
+    z-index: 2;
+}

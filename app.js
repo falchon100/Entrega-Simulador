@@ -26,11 +26,12 @@ let loginnone =document.getElementById("loginnone");
 registro.addEventListener("click",aparecer)
 function aparecer(){
 registronone.classList.toggle("d-none")
+loginnone.classList.add("d-none")
 }
-
 login.addEventListener("click",aparecer2)
 function aparecer2(){
 loginnone.classList.toggle("d-none")
+registronone.classList.add("d-none")
 }
 
 
@@ -47,7 +48,13 @@ console.log(formulario.children[2].value);
 sessionStorage.setItem("email",formulario.children[2].value)
 console.log(formulario.children[4].value);
 sessionStorage.setItem("clave",formulario.children[4].value)
-
+Swal.fire({
+    position: 'center',
+    icon: 'success',
+    title: 'Te has registrado correctamente',
+    showConfirmButton: false,
+    timer: 1500
+  })
 }
 // ME TRAIGO EL FORMULARIO LOGIN Y LUEGO DEL SUBMIT COMPARO LOS DATOS INGRESADOS EN EL SESSIONSTORE
 // CON LOS TARGET INGRESADOS EN EL FORMULARIO LOGIN 
@@ -59,12 +66,13 @@ function loginform(e){
 e.preventDefault(e);
 if (((sessionStorage.getItem("email") == formulario.children[2].value)) && ((sessionStorage.getItem("clave") == formulario.children[4].value))) {
 Swal.fire({
-    position: 'top-end',
+    position: 'center',
     icon: 'success',
     title: 'Ha ingresado correctamente, ahora puede hacer su pedido',
     showConfirmButton: false,
     timer: 1500
 })
+
 mostrarProductos(productos)
 }
 else{
