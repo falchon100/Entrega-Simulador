@@ -1,13 +1,11 @@
 import {productos} from "./js/stock.js"
+//Modifico un div para crear el contenido de los stock que importo de stock.js
 
-let row = document.getElementById("row");
+let menu = document.getElementById("menu");
 
 const mostrarProductos = (productos) =>{
-/*     const contenedorProductos = document.getElementById("producto-contenedor"); */
-
 for (const producto of productos){
- /*    let contenido = document.createElement("div"); */
-    row.innerHTML += `<div class="col-12 col-md-6 col-lg-4"> <div class="card mx-auto mt-3 mb-3" style="width: 18rem;">
+    menu.innerHTML += `<div class="col-12 col-md-6 col-lg-4"> <div class="card mx-auto mt-3 mb-3" style="width: 18rem;">
     <img src="${producto.img} " class="card-img-top" alt="...">
     <div class="card-body">
     <h5 class="card-title">${producto.nombre} </h5>
@@ -16,32 +14,7 @@ for (const producto of productos){
     <a href="#" class="btn btn-danger" >Agregar a Carrito</a>
     </div>
 </div></div>`
-/* row.append(contenido) */
 }
-
-
-
-
-
-
-/*     productos.forEach( producto => {
-        const div = document.createElement(`div`)
-        div.className=`card d-inline-block`
-        div.innerHTML +=`
-        <div class="row"> 
-                <div class="col-12 col-lg-4 text-center" style="width: 18rem;">
-                        <div class="card-body"> 
-                        <img src="${producto.img} " class="card-img-top" alt="...">
-                        <h5 class="card-title">${producto.nombre} </h5>
-                        <p class="card-text">${producto.descripcion} .</p>
-                        <p class="card-text">$${producto.precio} </p>
-                        <a href="#" class="btn btn-danger id=button${producto.id} ">Agregar a Carrito</a>
-                    </div>
-                </div>
-        </div> `
-
-        contenedorProductos.appendChild(div)
-    }) */
 }
 
 let registro = document.getElementById("registro");
@@ -52,15 +25,57 @@ let loginnone =document.getElementById("loginnone");
 
 registro.addEventListener("click",aparecer)
 function aparecer(){
-registronone.classList.remove("d-none")
+registronone.classList.toggle("d-none")
 }
 
 login.addEventListener("click",aparecer2)
 function aparecer2(){
-loginnone.classList.remove("d-none")
+loginnone.classList.toggle("d-none")
 }
 
 
-mostrarProductos(productos)
+// ME TRAIGO EL FORMULARIO Y LUEGO AL HACER SUBMIT EJECUTO 
+// LA FUNCION REGISTROFORM QUE TOMA EL VALUE Y LO GUARDA EN EL SESSION
 
+let formregistro = document.getElementById('formRegistro');
+    formregistro.addEventListener('submit',registroform);
+
+function registroform(e){
+e.preventDefault(e);
+let formulario =e.target;
+console.log(formulario.children[2].value);
+sessionStorage.setItem("email",formulario.children[2].value)
+console.log(formulario.children[4].value);
+sessionStorage.setItem("clave",formulario.children[4].value)
+
+}
+// ME TRAIGO EL FORMULARIO LOGIN Y LUEGO DEL SUBMIT COMPARO LOS DATOS INGRESADOS EN EL SESSIONSTORE
+// CON LOS TARGET INGRESADOS EN EL FORMULARIO LOGIN 
+let formlogin= document.getElementById('formLogin');
+formlogin .addEventListener('submit',loginform);
+
+function loginform(e){
+    let formulario= e.target;
+e.preventDefault(e);
+if (((sessionStorage.getItem("email") == formulario.children[2].value)) && ((sessionStorage.getItem("clave") == formulario.children[4].value))) {
+Swal.fire({
+    position: 'top-end',
+    icon: 'success',
+    title: 'Ha ingresado correctamente, ahora puede hacer su pedido',
+    showConfirmButton: false,
+    timer: 1500
+})
+mostrarProductos(productos)
+}
+else{
+    Swal.fire({
+        icon: 'error',
+        title: 'Algo anduvo mal',
+        text: 'El usuario o contraseña ingresado no es valido',
+
+      })
+}
+
+
+}
 

@@ -1,12 +1,12 @@
 .header__logo {
   width: 150px;
-  filter: brightness(1.1);
-  mix-blend-mode: multiply;
-  transition: transform 0.2s;
+  /*     filter: brightness(1.1);
+    mix-blend-mode: multiply;
+    transition: transform 0.2s; */
 }
 
 header {
-  background-color: #462731;
+  background-color: #654342;
 }
 
 header a {
@@ -18,6 +18,45 @@ header a {
   position: relative;
   z-index: 10;
   color: white;
+}
+
+#registronone {
+  background-color: #fff;
+  width: 600px;
+  max-width: 100%;
+  padding: 30px 50px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.titulo {
+  color: white;
+  z-index: 1;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.subtitulo {
+  color: white;
+  z-index: 2;
+}
+
+.nav-item {
+  transition: transform 0.2s;
+}
+
+.nav-item:hover {
+  transform: scale(1.2);
+}
+
+.btn-danger {
+  background-color: #4b3131 !important;
+  border-color: #926657 !important;
+  color: #c8956e !important;
+}
+
+header a {
+  color: #c8956e !important;
 }
 
 .hero {
