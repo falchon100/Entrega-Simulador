@@ -11,12 +11,17 @@ for (const producto of productos){
     <h5 class="card-title">${producto.nombre} </h5>
     <p class="card-text">${producto.descripcion} </p>
     <p class="card-text">$${producto.precio} </p>
-    <a href="#" class="btn btn-danger" >Agregar a Carrito</a>
+    <a href="#" class="btn btn-danger" id=boton${producto.id} >Agregar a Carrito</a>
     </div>
 </div></div>`
-}
-}
+const boton = document.getElementById(`boton${producto.id}`)
+boton.addEventListener("click", ()=>{ 
 
+})
+
+}
+}
+// ME LLAMO LOS BOTONES PARA LUEGO PODER ABRIR Y CERRAR EL MENU DE REGISTRO Y LOGIN 
 let registro = document.getElementById("registro");
 let login = document.getElementById("login");
 let registronone =document.getElementById("registronone");
@@ -54,7 +59,7 @@ Swal.fire({
     title: 'Te has registrado correctamente',
     showConfirmButton: false,
     timer: 1500
-  })
+})
 }
 // ME TRAIGO EL FORMULARIO LOGIN Y LUEGO DEL SUBMIT COMPARO LOS DATOS INGRESADOS EN EL SESSIONSTORE
 // CON LOS TARGET INGRESADOS EN EL FORMULARIO LOGIN 
@@ -72,6 +77,7 @@ Swal.fire({
     showConfirmButton: false,
     timer: 1500
 })
+loginnone.classList.toggle("d-none")
 
 mostrarProductos(productos)
 }
@@ -81,9 +87,18 @@ else{
         title: 'Algo anduvo mal',
         text: 'El usuario o contraseña ingresado no es valido',
 
-      })
+    })
 }
 
 
 }
+
+let abrirCarrito =document.getElementById("abrirCarrito");
+let modalCarrito =document.getElementById("modalCarrito");
+
+abrirCarrito.addEventListener("click",aparecer3)
+function aparecer3(){
+modalCarrito.classList.toggle("opacity-100"); 
+}
+
 

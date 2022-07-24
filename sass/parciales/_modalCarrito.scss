@@ -8,4 +8,22 @@
     top: 5;
     z-index: 99999;
     color :#c8956e;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-content: space-between;
+transition: all 0.9s;
+
+}
+
+.modalCarrito__items{
+    display: flex;
+    align-items: center;
+}
+
+.modalCarrito__botones{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-content: space-between;
 }
