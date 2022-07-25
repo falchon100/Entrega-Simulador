@@ -69,6 +69,28 @@ header a {
   color: #c8956e !important;
 }
 
+.header2 {
+  position: absolute;
+  text-decoration: none;
+  color: white;
+  z-index: 888;
+  background-color: #654342;
+  width: 400px;
+  height: 400px;
+  right: 0;
+  top: 20%;
+  border-radius: 15px;
+}
+
+.header2 li {
+  width: 200px;
+}
+
+.header2 a {
+  color: white;
+  text-decoration: none;
+}
+
 .hero {
   height: 80vh;
   position: relative;
@@ -151,5 +173,21 @@ header a {
   justify-content: space-between;
   flex-wrap: wrap;
   align-content: space-between;
+}
+
+/* MEDIA QUERYS */
+#hamburgesa {
+  display: none;
+}
+
+@media screen and (max-width: 960px) {
+  #ulheader {
+    display: none;
+  }
+  #hamburgesa {
+    display: block;
+    font-size: 40px;
+    color: #c8956e;
+  }
 }
 /*# sourceMappingURL=estilos.css.map */

@@ -1,7 +1,58 @@
 import {productos} from "./js/stock.js"
+
+
+let carrito = []
+
+let menu = document.getElementById("menu")
+const mostrarProductos = (productos) =>{
+productos.forEach(producto=>{
+const div = document.createElement('div')
+div.innerHTML += `<div class="card " style="width: 18rem;">
+                    <img src="${producto.img}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">${producto.nombre}</h5>
+                        <p class="card-text">Descripción:  ${producto.desc}</p>
+                        <p class="card-text">Precio:$ ${producto.precio}</p>
+                        <button class="btn btn-primary" id=boton${producto.id}>Comprar</button>
+                    </div>
+                </div>`
+                menu.appendChild(div)
+
+const boton = document.getElementById(`boton${producto.id}`)
+boton.addEventListener('click',()=>{
+    agregarAlCarrito(producto.id)
+    console.log(`boton${producto.id}`);
+alert(`se agrego ${producto.nombre}`)
+})
+})
+}
+mostrarProductos(productos)
+const agregarAlCarrito = (prodId) => {
+    const item = productos.find((prod)=> prod.id === prodId)
+    carrito.push(item)
+    console.log(carrito);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Modifico un div para crear el contenido de los stock que importo de stock.js
 
-let menu = document.getElementById("menu");
+/* let menu = document.getElementById("menu");
 
 const mostrarProductos = (productos) =>{
 for (const producto of productos){
@@ -15,12 +66,13 @@ for (const producto of productos){
     </div>
 </div></div>`
 const boton = document.getElementById(`boton${producto.id}`)
-boton.addEventListener("click", ()=>{ 
-
+boton.addEventListener("click", ()=>{  }
 })
+}
+} */
 
-}
-}
+
+
 // ME LLAMO LOS BOTONES PARA LUEGO PODER ABRIR Y CERRAR EL MENU DE REGISTRO Y LOGIN 
 let registro = document.getElementById("registro");
 let login = document.getElementById("login");
@@ -79,7 +131,7 @@ Swal.fire({
 })
 loginnone.classList.toggle("d-none")
 
-mostrarProductos(productos)
+/* mostrarProductos(productos) */
 }
 else{
     Swal.fire({
@@ -98,7 +150,15 @@ let modalCarrito =document.getElementById("modalCarrito");
 
 abrirCarrito.addEventListener("click",aparecer3)
 function aparecer3(){
-modalCarrito.classList.toggle("opacity-100"); 
+modalCarrito.classList.toggle("d-none"); 
 }
 
 
+
+let ulheader2 = document.getElementById('ulheader2')
+let hamburgesa = document.getElementById('hamburgesa')
+hamburgesa.addEventListener('click',aparecerr)
+
+function aparecerr(){
+    ulheader2.classList.toggle("d-none")
+}

@@ -1,0 +1,17 @@
+/* MEDIA QUERYS */
+#hamburgesa{
+    display: none;
+}
+
+
+@media screen and (max-width: 960px) {
+    #ulheader{
+        display: none;
+    }
+
+    #hamburgesa{display: block;
+        font-size: 40px;
+        color: #c8956e;
+    
+    }
+    }

@@ -68,3 +68,27 @@ text-align: center;
 header a{
 color:#c8956e !important;
 }
+
+.header2{
+    position: absolute;
+    text-decoration: none;
+    color: white;
+    z-index: 888;
+    background-color: #654342;
+    width: 400px;
+    height: 400px;
+    right: 0;
+    top: 20%;
+    border-radius: 15px;
+
+    li{
+        width: 200px;
+    }
+
+    a{
+        color:white;
+        text-decoration: none
+
+    
+    }
+}

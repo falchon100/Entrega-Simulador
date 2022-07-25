@@ -48,14 +48,14 @@ const productos = [
         cantidad:1,
     },
     {
-        id:6,
+        id:7,
         nombre:"Expresso",
         img:`./img/6.jpg`,
         descripcion:"Cafe arabico con escencia vainilla o canella",
         precio:250,
         cantidad:1,
     },   {
-        id:6,
+        id:8,
         nombre:"Expresso",
         img:`./img/6.jpg`,
         descripcion:"Cafe arabico con escencia vainilla o canella",
