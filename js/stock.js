@@ -4,7 +4,7 @@ const productos = [
         nombre:"Cafe con leche",
         img:`./img/1.jpg`,
         descripcion:"Cafe arabico con escencia vainilla o canella",
-        precio:250,
+        precio:200,
         cantidad:1,
     },
     {
@@ -20,7 +20,7 @@ const productos = [
         nombre:"Expresso",
         img:`./img/3.jpg`,
         descripcion:"Cafe arabico con escencia vainilla o canella",
-        precio:250,
+        precio:150,
         cantidad:1,
     },
     {
@@ -28,7 +28,7 @@ const productos = [
         nombre:"Medialunas",
         img:`./img/4.jpg`,
         descripcion:"Cafe arabico con escencia vainilla o canella",
-        precio:250,
+        precio:100,
         cantidad:1,
     },
     {
@@ -36,7 +36,7 @@ const productos = [
         nombre:"Tostado",
         img:`./img/5.jpg`,
         descripcion:"Cafe arabico con escencia vainilla o canella",
-        precio:250,
+        precio:300,
         cantidad:1,
     },
     {

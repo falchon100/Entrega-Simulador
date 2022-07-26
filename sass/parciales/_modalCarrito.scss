@@ -9,16 +9,18 @@
     z-index: 99999;
     color :#c8956e;
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
     align-content: space-between;
 transition: all 0.9s;
+flex-direction: column-reverse;
+justify-content: flex-end
 
 }
 
 .modalCarrito__items{
     display: flex;
-    align-items: center;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .modalCarrito__botones{

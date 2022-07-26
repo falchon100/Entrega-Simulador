@@ -1,19 +1,22 @@
 import {productos} from "./js/stock.js"
 
+const abrirCarrito =document.getElementById("abrirCarrito");
+const modalCarrito =document.getElementById("modalCarrito");
 
 let carrito = []
 
+
 let menu = document.getElementById("menu")
 const mostrarProductos = (productos) =>{
-productos.forEach(producto=>{
+productos.forEach((producto)=>{
 const div = document.createElement('div')
 div.innerHTML += `<div class="card " style="width: 18rem;">
                     <img src="${producto.img}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">${producto.nombre}</h5>
-                        <p class="card-text">Descripción:  ${producto.desc}</p>
+                        <p class="card-text">Descripción:  ${producto.descripcion}</p>
                         <p class="card-text">Precio:$ ${producto.precio}</p>
-                        <button class="btn btn-primary" id=boton${producto.id}>Comprar</button>
+                        <button class="btn btn-primary" id="boton${producto.id}">Comprar</button>
                     </div>
                 </div>`
                 menu.appendChild(div)
@@ -22,7 +25,6 @@ const boton = document.getElementById(`boton${producto.id}`)
 boton.addEventListener('click',()=>{
     agregarAlCarrito(producto.id)
     console.log(`boton${producto.id}`);
-alert(`se agrego ${producto.nombre}`)
 })
 })
 }
@@ -30,7 +32,36 @@ mostrarProductos(productos)
 const agregarAlCarrito = (prodId) => {
     const item = productos.find((prod)=> prod.id === prodId)
     carrito.push(item)
-    console.log(carrito);
+    actualizarCarrito()
+}
+
+const eliminarDelCarrito = (prodId) =>{
+    const item = carrito.find((prod) =>prod.id === prodId)
+    const indice =carrito.indexOf(item)
+    carrito.splice(indice,1)
+    actualizarCarrito()
+}
+
+
+const actualizarCarrito = () => {
+    modalCarrito.innerHTML =` <div class="d-flex modalCarrito__botones pb-2 ps-2"> 
+    <button class="btn btn-danger mx-1" id="vaciar-carrito">Vaciar Carrito</button>
+    <button class="btn btn-danger mx-1">confirmar compra</button>
+    <button class="btn btn-danger mx-1">cerrar</button>
+</div>`
+
+    carrito.forEach((prod)=>{
+        const div = document.createElement('div')
+        div.className = ("modalCarrito__items")
+        div.innerHTML =`
+        <img class="px-1" src="${prod.img} " alt="" width="40px" height="40px">
+        <p class="px-2"> <b>${prod.nombre}</b></p>
+        <p class="px-2"><b>Precio: ${prod.precio}</b></p
+        <p class="px-2"><b>Cantidad: <span id ="cantidad" class="px-2">${prod.cantidad}</b> </span></p>
+        <button onclick = "eliminarDelCarrito(${prod.id})" class ="boton-eliminar"><i class="fas fa-trash-alt"> </i></button>`
+    
+        modalCarrito.appendChild(div)
+    })
 }
 
 
@@ -43,33 +74,6 @@ const agregarAlCarrito = (prodId) => {
 
 
 
-
-
-
-
-
-
-
-//Modifico un div para crear el contenido de los stock que importo de stock.js
-
-/* let menu = document.getElementById("menu");
-
-const mostrarProductos = (productos) =>{
-for (const producto of productos){
-    menu.innerHTML += `<div class="col-12 col-md-6 col-lg-4"> <div class="card mx-auto mt-3 mb-3" style="width: 18rem;">
-    <img src="${producto.img} " class="card-img-top" alt="...">
-    <div class="card-body">
-    <h5 class="card-title">${producto.nombre} </h5>
-    <p class="card-text">${producto.descripcion} </p>
-    <p class="card-text">$${producto.precio} </p>
-    <a href="#" class="btn btn-danger" id=boton${producto.id} >Agregar a Carrito</a>
-    </div>
-</div></div>`
-const boton = document.getElementById(`boton${producto.id}`)
-boton.addEventListener("click", ()=>{  }
-})
-}
-} */
 
 
 
@@ -145,8 +149,7 @@ else{
 
 }
 
-let abrirCarrito =document.getElementById("abrirCarrito");
-let modalCarrito =document.getElementById("modalCarrito");
+
 
 abrirCarrito.addEventListener("click",aparecer3)
 function aparecer3(){
