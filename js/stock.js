@@ -61,7 +61,7 @@ const productos = [
         descripcion:"Cafe arabico con escencia vainilla o canella",
         precio:250,
         cantidad:1,
-    }
+    },
 
 ]
 

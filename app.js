@@ -36,6 +36,7 @@ const agregarAlCarrito = (prodId) => {
 }
 
 const eliminarDelCarrito = (prodId) =>{
+    console.log(prodId);
     const item = carrito.find((prod) =>prod.id === prodId)
     const indice =carrito.indexOf(item)
     carrito.splice(indice,1)
@@ -58,23 +59,13 @@ const actualizarCarrito = () => {
         <p class="px-2"> <b>${prod.nombre}</b></p>
         <p class="px-2"><b>Precio: ${prod.precio}</b></p
         <p class="px-2"><b>Cantidad: <span id ="cantidad" class="px-2">${prod.cantidad}</b> </span></p>
-        <button onclick = "eliminarDelCarrito(${prod.id})" class ="boton-eliminar"><i class="fas fa-trash-alt"> </i></button>`
+        <button id="id${prod.id}" class ="boton-eliminar"><i class="fas fa-trash-alt"> </i></button>`
     
         modalCarrito.appendChild(div)
+        let botonid = document.getElementById(`id${prod.id}`)
+        botonid.addEventListener('click',()=> eliminarDelCarrito(prod.id))
     })
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // ME LLAMO LOS BOTONES PARA LUEGO PODER ABRIR Y CERRAR EL MENU DE REGISTRO Y LOGIN 
