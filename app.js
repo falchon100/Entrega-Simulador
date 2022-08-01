@@ -2,8 +2,12 @@ import {productos} from "./js/stock.js"
 
 const abrirCarrito =document.getElementById("abrirCarrito");
 const modalCarrito =document.getElementById("modalCarrito");
-
+const botonVaciar = document.getElementById("vaciar-carrito")
+const contenidoModal =document.getElementById("contenidoModal");
+const precioTotal = document.getElementById('precioTotal')
 let carrito = []
+
+
 
 
 let menu = document.getElementById("menu")
@@ -16,7 +20,7 @@ div.innerHTML += `<div class="card " style="width: 18rem;">
                         <h5 class="card-title">${producto.nombre}</h5>
                         <p class="card-text">Descripción:  ${producto.descripcion}</p>
                         <p class="card-text">Precio:$ ${producto.precio}</p>
-                        <button class="btn btn-primary" id="boton${producto.id}">Comprar</button>
+                        <button class="btn btn-danger" id="boton${producto.id}">Comprar</button>
                     </div>
                 </div>`
                 menu.appendChild(div)
@@ -24,7 +28,14 @@ div.innerHTML += `<div class="card " style="width: 18rem;">
 const boton = document.getElementById(`boton${producto.id}`)
 boton.addEventListener('click',()=>{
     agregarAlCarrito(producto.id)
-    console.log(`boton${producto.id}`);
+    Toastify({
+        text: `Se agrego ${producto.nombre} +$${producto.precio}`,
+        className: "degrade",
+        style: {
+        background: "linear-gradient(to right, #664343, #926657)",
+        }
+    }).showToast();
+
 })
 })
 }
@@ -45,11 +56,7 @@ const eliminarDelCarrito = (prodId) =>{
 
 
 const actualizarCarrito = () => {
-    modalCarrito.innerHTML =` <div class="d-flex modalCarrito__botones pb-2 ps-2"> 
-    <button class="btn btn-danger mx-1" id="vaciar-carrito">Vaciar Carrito</button>
-    <button class="btn btn-danger mx-1">confirmar compra</button>
-    <button class="btn btn-danger mx-1">cerrar</button>
-</div>`
+    contenidoModal.innerHTML =""
 
     carrito.forEach((prod)=>{
         const div = document.createElement('div')
@@ -61,10 +68,11 @@ const actualizarCarrito = () => {
         <p class="px-2"><b>Cantidad: <span id ="cantidad" class="px-2">${prod.cantidad}</b> </span></p>
         <button id="id${prod.id}" class ="boton-eliminar"><i class="fas fa-trash-alt"> </i></button>`
     
-        modalCarrito.appendChild(div)
+        contenidoModal.appendChild(div)
         let botonid = document.getElementById(`id${prod.id}`)
         botonid.addEventListener('click',()=> eliminarDelCarrito(prod.id))
     })
+    precioTotal.innerHTML =carrito.reduce((acc,prod)=>acc+prod.precio,0)
 }
 
 
@@ -107,7 +115,9 @@ Swal.fire({
     showConfirmButton: false,
     timer: 1500
 })
+registronone.classList.toggle("d-none")
 }
+
 // ME TRAIGO EL FORMULARIO LOGIN Y LUEGO DEL SUBMIT COMPARO LOS DATOS INGRESADOS EN EL SESSIONSTORE
 // CON LOS TARGET INGRESADOS EN EL FORMULARIO LOGIN 
 let formlogin= document.getElementById('formLogin');
@@ -156,3 +166,8 @@ hamburgesa.addEventListener('click',aparecerr)
 function aparecerr(){
     ulheader2.classList.toggle("d-none")
 }
+
+botonVaciar.addEventListener('click',()=> {
+    carrito.length = 0
+    actualizarCarrito()
+})

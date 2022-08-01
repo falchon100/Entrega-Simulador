@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="./css/estilos.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <title>Cafeteria Mokka y CO</title>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+<title>Cafeteria Mokka y CO</title>
 
 </head>
 
@@ -36,7 +37,7 @@
     <a  href="#"><i class="fa-solid fa-person-circle-question"></i> Contacto</a>
     </li>
 </ul>
-<i id="hamburgesa" class="fa-solid fa-bars p-5"></i>
+<i id="hamburgesa" class="fa-solid fa-bars"></i>
 </header>
 <ul id="ulheader2" class="header2 d-flex flex-column align-items-center justify-content-center d-none">
     <li class="nav-item px-2 btn btn-danger mt-3">
@@ -55,7 +56,14 @@
 
 
 
-<div id="modalCarrito" class="modalCarrito d-none">
+<div id="modalCarrito" class="modalCarrito d-none d-flex align-items-center">
+    <button id="vaciar-carrito" class="btn btn-danger mt-3">Vaciar carrito</button>
+    <button class="btn btn-danger">Confirmar Compra</button>
+
+    <div id="contenidoModal">
+
+    </div>
+    <p class="Precioproducto">Precio total : $ <span id="precioTotal">0</span></p>
 </div>
 
 
@@ -98,7 +106,7 @@
 <section>contacto</section>
 
 </body>
-
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/80b37d9900.js" crossorigin="anonymous"></script>
 <script src="./js/stock.js" type="module"></script>
