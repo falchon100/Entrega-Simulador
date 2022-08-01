@@ -177,6 +177,14 @@ header a {
   align-content: space-between;
 }
 
+.fa-circle-xmark {
+  color: white;
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  font-size: 20px;
+}
+
 /* MEDIA QUERYS */
 #hamburgesa {
   display: none;
