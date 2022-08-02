@@ -41,8 +41,16 @@ boton.addEventListener('click',()=>{
 }
 mostrarProductos(productos)
 const agregarAlCarrito = (prodId) => {
+    const existe = carrito.some (prod => prod.id ===prodId)
+    if (existe){
+        const prod = carrito.map (prod=>{
+            prod.cantidad++
+        })
+    }else { 
+
     const item = productos.find((prod)=> prod.id === prodId)
     carrito.push(item)
+}
     actualizarCarrito()
 }
 
@@ -103,19 +111,26 @@ let formregistro = document.getElementById('formRegistro');
 
 function registroform(e){
 e.preventDefault(e);
-let formulario =e.target;
-console.log(formulario.children[2].value);
+let formulario = e.target;
+
+if ((!formulario.children[2].value) || (!formulario.children[4].value))  {
+    Swal.fire({
+    icon: 'error',
+    title: 'Debe completar todos los campos!',
+})}
+else {
 sessionStorage.setItem("email",formulario.children[2].value)
-console.log(formulario.children[4].value);
 sessionStorage.setItem("clave",formulario.children[4].value)
+let formularioStorage = JSON.stringify(sessionStorage.getItem("email"))
+console.log(formularioStorage);
 Swal.fire({
     position: 'center',
     icon: 'success',
     title: 'Te has registrado correctamente',
     showConfirmButton: false,
     timer: 1500
-})
-registronone.classList.toggle("d-none")
+}) 
+registronone.classList.toggle("d-none")}
 }
 
 // ME TRAIGO EL FORMULARIO LOGIN Y LUEGO DEL SUBMIT COMPARO LOS DATOS INGRESADOS EN EL SESSIONSTORE
