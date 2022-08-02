@@ -1,12 +1,11 @@
 import {productos} from "./js/stock.js"
-
+// Selecciono los id para poder utilizarlos 
 const abrirCarrito =document.getElementById("abrirCarrito");
 const modalCarrito =document.getElementById("modalCarrito");
 const botonVaciar = document.getElementById("vaciar-carrito")
 const contenidoModal =document.getElementById("contenidoModal");
 const precioTotal = document.getElementById('precioTotal')
 let carrito = []
-
 
 
 
@@ -47,8 +46,14 @@ const agregarAlCarrito = (prodId) => {
             prod.cantidad++
         })
     }else { 
-
-    const item = productos.find((prod)=> prod.id === prodId)
+    const item = productos.find((prod)=> prod.id === prodId);
+    if (item) {
+        const temp =productos.map(prod =>{
+            if (prod.id === prodId){
+                prod.cantidad = 1
+            }
+        })
+    }
     carrito.push(item)
 }
     actualizarCarrito()
@@ -65,7 +70,6 @@ const eliminarDelCarrito = (prodId) =>{
 
 const actualizarCarrito = () => {
     contenidoModal.innerHTML =""
-
     carrito.forEach((prod)=>{
         const div = document.createElement('div')
         div.className = ("modalCarrito__items")
@@ -161,8 +165,6 @@ else{
 
     })
 }
-
-
 }
 
 
