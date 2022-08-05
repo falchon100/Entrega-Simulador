@@ -185,6 +185,18 @@ header a {
   font-size: 20px;
 }
 
+#botondemodal {
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  width: 150px;
+  height: 150px;
+}
+
+#botondemodal i {
+  font-size: 30px;
+}
+
 /* MEDIA QUERYS */
 #hamburgesa {
   display: none;
