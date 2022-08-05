@@ -6,7 +6,8 @@ const abrirCarrito = document.getElementById("abrirCarrito");
 const modalCarrito = document.getElementById("modalCarrito");
 const botonVaciar = document.getElementById("vaciar-carrito")
 const contenidoModal = document.getElementById("contenidoModal");
-const precioTotal = document.getElementById('precioTotal')
+const precioTotal = document.getElementById('precioTotal');
+const contadorCarrito = document.getElementById('contadorCarrito');
 let carrito = []
 
 
@@ -89,7 +90,11 @@ const actualizarCarrito = () => {
         let botonid = document.getElementById(`id${prod.id}`)
         botonid.addEventListener('click', () => eliminarDelCarrito(prod.id))
     })
+
     precioTotal.innerHTML = carrito.reduce((acc, prod) => acc + prod.precio * prod.cantidad, 0)
+    console.log(carrito);
+
+    contadorCarrito.innerText = carrito.length;
 }
 
 
@@ -163,7 +168,7 @@ function loginform(e) {
         })
         loginnone.classList.toggle("d-none")
 
-        /* mostrarProductos(productos) */
+        /*         mostrarProductos(productos) */
     } else {
         Swal.fire({
             icon: 'error',
