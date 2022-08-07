@@ -8,28 +8,31 @@ const botonVaciar = document.getElementById("vaciar-carrito")
 const contenidoModal = document.getElementById("contenidoModal");
 const precioTotal = document.getElementById('precioTotal');
 const contadorCarrito = document.getElementById('contadorCarrito');
+let menu = document.getElementById("menu")
+//inicializo un array vacio para poder acumular los productos
 let carrito = []
 
 
 
-let menu = document.getElementById("menu")
+//creo una funcion para traerme todos los datos del array y formar el html con todas las cards
 const mostrarProductos = (productos) => {
     productos.forEach((producto) => {
         const div = document.createElement('div')
         div.innerHTML += `<div class="card " style="width: 18rem;">
                     <img src="${producto.img}" class="card-img-top" alt="...">
-                    <div class="card-body">
+                    <div class="card-body text-center">
                         <h5 class="card-title">${producto.nombre}</h5>
-                        <p class="card-text">Descripción:  ${producto.descripcion}</p>
+                        <p class="card-text">${producto.descripcion}</p>
                         <p class="card-text">Precio:$ ${producto.precio}</p>
                         <button class="btn btn-danger" id="boton${producto.id}">Comprar</button>
                     </div>
                 </div>`
         menu.appendChild(div)
-
+        //selecciono un boton al cual le agregue un id para que se pueda identificar el que el usuario clickeo
         const boton = document.getElementById(`boton${producto.id}`)
         boton.addEventListener('click', () => {
             agregarAlCarrito(producto.id)
+            //alerta para cada vez que se agrega un item al carrito 
             Toastify({
                 text: `Se agrego ${producto.nombre} +$${producto.precio}`,
                 className: "degrade",
@@ -42,7 +45,7 @@ const mostrarProductos = (productos) => {
     })
 }
 mostrarProductos(productos);
-
+// la funcion identifica si ya hay un articulo con ese id en el producto, si es asi le suma la cantidad  y luego actualiza carrito
 const agregarAlCarrito = (prodId) => {
     const existe = carrito.some(prod => prod.id === prodId)
     if (existe) {
@@ -51,6 +54,7 @@ const agregarAlCarrito = (prodId) => {
                 prod.cantidad++
             }
         })
+        //si no existe establece que la cantidad va a ser igual a 1 y luego actualiza el carrito
     } else {
         const item = productos.find((prod) => prod.id === prodId);
         if (item) {
@@ -65,6 +69,7 @@ const agregarAlCarrito = (prodId) => {
     actualizarCarrito();
 }
 
+// creo una funcion que a travez de localizar el id encontramos el indice de ese producto y con el splice se borra el ultimo que agrego
 const eliminarDelCarrito = (prodId) => {
     console.log(prodId);
     const item = carrito.find((prod) => prod.id === prodId);
@@ -73,7 +78,7 @@ const eliminarDelCarrito = (prodId) => {
     actualizarCarrito();
 }
 
-
+//creo una funcion para poder recorrer el carrito e ir actualizando todo lo que se va a ver el modal 
 const actualizarCarrito = () => {
     contenidoModal.innerHTML = ""
     carrito.forEach((prod) => {
@@ -90,7 +95,8 @@ const actualizarCarrito = () => {
         let botonid = document.getElementById(`id${prod.id}`)
         botonid.addEventListener('click', () => eliminarDelCarrito(prod.id))
     })
-
+    // utilizo el reduce para poder ver en el carrito todos los valores y sumarlos y tambien lo multiplico por la cantidad ya que si 
+    // el usuario apretaba el mismo articulo no me lo sumaba 
     precioTotal.innerHTML = carrito.reduce((acc, prod) => acc + prod.precio * prod.cantidad, 0)
     console.log(carrito);
 
@@ -168,7 +174,7 @@ function loginform(e) {
         })
         loginnone.classList.toggle("d-none")
 
-        /*         mostrarProductos(productos) */
+        /*   mostrarProductos(productos) */
     } else {
         Swal.fire({
             icon: 'error',

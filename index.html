@@ -1,115 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/estilos.css">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-<script src="https://kit.fontawesome.com/3147ed9d57.js" crossorigin="anonymous"></script>
-<title>Cafeteria Mokka y CO</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script src="https://kit.fontawesome.com/3147ed9d57.js" crossorigin="anonymous"></script>
+    <title>Cafeteria Mokka y CO</title>
 
 </head>
 
 <body>
 
-<header class="d-flex align-items-center justify-content-between"> 
+    <header class="d-flex align-items-center justify-content-between">
 
-    <img class="header__logo  align-self-start" src="./img/mokka_1.png" alt="">
-        <div class="botoncitos"> 
-            <button id="registro" class="btn btn-danger mx-3"><i class="fa-solid fa-address-card"></i> Registrate</button>
-            <a id="login" class="btn btn-danger" ><i class="fa-solid fa-arrow-right-to-bracket "></i> Ingresa</a>
+        <img class="header__logo  align-self-start" src="./img/mokka_1.png" alt="">
+        <div class="botoncitos">
+            <button id="registro" class="btn btn-danger mx-3"><i class="fa-solid fa-address-card"></i>
+                Registrate</button>
+            <a id="login" class="btn btn-danger"><i class="fa-solid fa-arrow-right-to-bracket "></i> Ingresa</a>
         </div>
-    
 
-<ul id="ulheader" class="nav justify-content-end mx-5">
-    <li class="nav-item px-2">
-    <a  href="#" > <i class="fa-solid fa-utensils"></i>  Menu</a>
-    </li>
-    <li class="nav-item px-2">
-    <a  href="#"> <i class="fa-solid fa-tag"></i> Promociones</a>
-    </li>
-    <li class="nav-item px-2">
-<!--     <a id="abrirCarrito"  href="#"> <i class="fa-solid fa-cart-shopping"></i> Pedido Online</a> -->
-    </li>
-    <li class="nav-item px-2">
-    <a  href="#"><i class="fa-solid fa-person-circle-question"></i> Contacto</a>
-    </li>
-</ul>
-<i id="hamburgesa" class="fa-solid fa-bars"></i>
-</header>
-<ul id="ulheader2" class="header2 d-flex flex-column align-items-center justify-content-center d-none">
-    <li class="nav-item px-2 btn btn-danger mt-3">
-    <a  href="#" > <i class="fa-solid fa-utensils btn btn-danger"></i>  Menu</a>
-    </li>
-    <li class="nav-item px-2 btn btn-danger mt-3">
-    <a  href="#"> <i class="fa-solid fa-tag  btn btn-danger"></i> Promociones</a>
-    </li>
-    <li class="nav-item px-2 btn btn-danger mt-3">
-  <!--   <a id="abrirCarrito"  href="#"> <i class="fa-solid fa-cart-shopping btn btn-danger"></i> Pedido Online</a> -->
-    </li>
-    <li class="nav-item px-2 btn btn-danger mt-3">
-    <a  href="#"><i class="fa-solid fa-person-circle-question btn btn-danger"></i> Contacto</a>
-    </li>
-</ul>
 
-<button id="abrirCarrito" class="botoncitolindo"><i  class="fa-solid fa-mug-saucer"></i> <b id="contadorCarrito"></b></button>
+        <ul id="ulheader" class="nav justify-content-end mx-5">
+            <li class="nav-item px-2">
+                <a href="#"> <i class="fa-solid fa-utensils"></i> Menu</a>
+            </li>
+            <li class="nav-item px-2">
+                <a href="#"> <i class="fa-solid fa-tag"></i> Promociones</a>
+            </li>
+            <li class="nav-item px-2">
+                <!--     <a id="abrirCarrito"  href="#"> <i class="fa-solid fa-cart-shopping"></i> Pedido Online</a> -->
+            </li>
+            <li class="nav-item px-2">
+                <a href="#"><i class="fa-solid fa-person-circle-question"></i> Contacto</a>
+            </li>
+        </ul>
+        <i id="hamburgesa" class="fa-solid fa-bars"></i>
+    </header>
+    <ul id="ulheader2" class="header2 d-flex flex-column align-items-center justify-content-center d-none">
+        <li class="nav-item px-2 btn btn-danger mt-3">
+            <a href="#"> <i class="fa-solid fa-utensils btn btn-danger"></i> Menu</a>
+        </li>
+        <li class="nav-item px-2 btn btn-danger mt-3">
+            <a href="#"> <i class="fa-solid fa-tag  btn btn-danger"></i> Promociones</a>
+        </li>
+        <li class="nav-item px-2 btn btn-danger mt-3">
+            <!--   <a id="abrirCarrito"  href="#"> <i class="fa-solid fa-cart-shopping btn btn-danger"></i> Pedido Online</a> -->
+        </li>
+        <li class="nav-item px-2 btn btn-danger mt-3">
+            <a href="#"><i class="fa-solid fa-person-circle-question btn btn-danger"></i> Contacto</a>
+        </li>
+    </ul>
 
-<div id="modalCarrito" class="modalCarrito d-none d-flex align-items-center">
-    <button id="vaciar-carrito" class="btn btn-danger mt-3">Vaciar carrito</button>
-    <button class="btn btn-danger">Confirmar Compra</button>
+    <button id="abrirCarrito" class="botoncitolindo"><i class="fa-solid fa-mug-saucer"></i> <b
+            id="contadorCarrito"></b></button>
 
-    <div id="contenidoModal">
+    <div id="modalCarrito" class="modalCarrito d-none d-flex align-items-center">
+        <button id="vaciar-carrito" class="btn btn-danger mt-3">Vaciar carrito</button>
+        <button class="btn btn-danger">Confirmar Compra</button>
 
+        <div id="contenidoModal">
+
+        </div>
+        <p class="Precioproducto">Precio total : $ <span id="precioTotal">0</span></p>
+        <i class="fa-solid fa-circle-xmark "></i>
     </div>
-    <p class="Precioproducto">Precio total : $ <span id="precioTotal">0</span></p>
-<i  class="fa-solid fa-circle-xmark "></i>
-</div>
 
 
-<section class="hero d-flex justify-content-center align-items-center flex-column">
-<h1 class="titulo text-center">la forma tradicional de tomar cafe</h1>
-<h3 class="subtitulo mt-3 text-center">registrate para armar tu pedido!</h3>
+    <section class="hero d-flex justify-content-center align-items-center flex-column">
+        <h1 class="titulo text-center">la forma tradicional de tomar cafe</h1>
+        <h3 class="subtitulo mt-3 text-center">registrate para armar tu pedido!</h3>
 
-</section>
-<div class="registronone1"> 
-<div id="registronone" class="container d-none mx-auto"> 
-    <form id="formRegistro" class="text-center formulario mx-auto">
-        <h2>Registro</h2>
-        <label for="fregistro" class="form-label mb-3">Usuario</label>
-        <input type="email" class="form-control mb-3" id="registro" aria-describedby="emailHelp">
-        <label for="clave" class="form-label mb-3">Contraseña</label>
-        <input type="password" class="form-control mb-3" id="clave">
-        <button type="submit" class="btn btn-danger">Registrar</button>
-    </form>
-</div>
-</div>
-<div id="loginnone" class="container loginnone d-none "> 
-    <form id="formLogin" class="text-center formulario mx-auto">
-        <h2>Ingresar</h2>
-        <label for="login" class="form-label">Usuario</label>
-        <input type="email" class="form-control" id="login" aria-describedby="emailHelp">
-        <label for="contraseña2" class="form-label">Contraseña</label>
-        <input type="password" class="form-control mb-3" id="contraseña2">
-        <button type="submit" class="btn btn-danger">Ingresar</button>
-    </form>
-</div>
+    </section>
+    <div class="registronone1">
+        <div id="registronone" class="container d-none mx-auto">
+            <form id="formRegistro" class="text-center formulario mx-auto">
+                <h2>Registro</h2>
+                <label for="fregistro" class="form-label mb-3">Usuario</label>
+                <input type="email" class="form-control mb-3" id="registro" aria-describedby="emailHelp">
+                <label for="clave" class="form-label mb-3">Contraseña</label>
+                <input type="password" class="form-control mb-3" id="clave">
+                <button type="submit" class="btn btn-danger">Registrar</button>
+            </form>
+        </div>
+    </div>
+    <div id="loginnone" class="container loginnone d-none ">
+        <form id="formLogin" class="text-center formulario mx-auto">
+            <h2>Ingresar</h2>
+            <label for="login" class="form-label">Usuario</label>
+            <input type="email" class="form-control" id="login" aria-describedby="emailHelp">
+            <label for="contraseña2" class="form-label">Contraseña</label>
+            <input type="password" class="form-control mb-3" id="contraseña2">
+            <button type="submit" class="btn btn-danger">Ingresar</button>
+        </form>
+    </div>
 
-<div id ="producto-contenedor" class="container">
-    <div id="menu" class="d-flex container flex-wrap gap-4 justify-content-center"></div>
-</div>
+    <div id="producto-contenedor" class="container">
+        <div id="menu" class="d-flex container flex-wrap gap-4 justify-content-center"></div>
+    </div>
 
 
-<section>promociones </section>
-<section>pedido Online</section>
-<section>contacto</section>
-
+    <section>promociones </section>
+    <section>pedido Online</section>
+    <section>contacto</section>
+    <footer class="container-fluid">
+        <p>catamarca 1472 Mar del Plata</p>
+    </footer>
 </body>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+</script>
 <script src="https://kit.fontawesome.com/80b37d9900.js" crossorigin="anonymous"></script>
 <script src="./js/stock.js" type="module"></script>
 <script src="./app.js" type="module"></script>
+
 </html>
