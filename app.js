@@ -1,6 +1,6 @@
-import {
+/* import {
     productos
-} from "./js/stock.js"
+} from "./js/stock.js" */
 // Selecciono los id para poder utilizarlos 
 const abrirCarrito = document.getElementById("abrirCarrito");
 const modalCarrito = document.getElementById("modalCarrito");
@@ -12,8 +12,24 @@ let menu = document.getElementById("menu")
 //inicializo un array vacio para poder acumular los productos
 let carrito = []
 
+// creo un array vacio para luego ir pusheando el json de data.json
+let productos = []
 
 
+const cargar = async () => {
+    const response = await fetch("./data.json");
+    const items = await response.json();
+    items.forEach(item => {
+        productos.push(item)
+    })
+    console.log(productos);
+}
+
+const agruparAsync = async () => {
+    await cargar();
+    mostrarProductos(productos)
+}
+agruparAsync()
 //creo una funcion para traerme todos los datos del array y formar el html con todas las cards
 const mostrarProductos = (productos) => {
     productos.forEach((producto) => {
@@ -174,7 +190,8 @@ function loginform(e) {
         })
         loginnone.classList.toggle("d-none")
 
-        /*   mostrarProductos(productos) */
+        /*         mostrarProductos(productos) */
+        /*         agruparAsync() */
     } else {
         Swal.fire({
             icon: 'error',
