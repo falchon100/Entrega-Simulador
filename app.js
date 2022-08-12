@@ -1,3 +1,11 @@
+//esta variable la uso para cambiar el formato del numero para cuando hay un valor mayor a 1000 para que aparesca el punto
+const separador = numb => {
+    let str = numb.toString().split(".");
+    str[0] = str[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    return str.join(".");
+}
+
+
 /* import {
     productos
 } from "./js/stock.js" */
@@ -7,15 +15,13 @@ const modalCarrito = document.getElementById("modalCarrito");
 const botonVaciar = document.getElementById("vaciar-carrito")
 const contenidoModal = document.getElementById("contenidoModal");
 const precioTotal = document.getElementById('precioTotal');
-const contadorCarrito = document.getElementById('contadorCarrito');
 let menu = document.getElementById("menu")
 //inicializo un array vacio para poder acumular los productos
 let carrito = []
 
 // creo un array vacio para luego ir pusheando el json de data.json
 let productos = []
-
-
+const miLocalStorage = window.localStorage;
 const cargar = async () => {
     const response = await fetch("./data.json");
     const items = await response.json();
@@ -83,6 +89,7 @@ const agregarAlCarrito = (prodId) => {
         carrito.push(item);
     }
     actualizarCarrito();
+    guardarCarritoEnLocalStorage();
 }
 
 // creo una funcion que a travez de localizar el id encontramos el indice de ese producto y con el splice se borra el ultimo que agrego
@@ -92,10 +99,12 @@ const eliminarDelCarrito = (prodId) => {
     const indice = carrito.indexOf(item);
     carrito.splice(indice, 1);
     actualizarCarrito();
+    guardarCarritoEnLocalStorage();
 }
 
 //creo una funcion para poder recorrer el carrito e ir actualizando todo lo que se va a ver el modal 
 const actualizarCarrito = () => {
+
     contenidoModal.innerHTML = ""
     carrito.forEach((prod) => {
         const div = document.createElement('div')
@@ -113,9 +122,9 @@ const actualizarCarrito = () => {
     })
     // utilizo el reduce para poder ver en el carrito todos los valores y sumarlos y tambien lo multiplico por la cantidad ya que si 
     // el usuario apretaba el mismo articulo no me lo sumaba 
-    precioTotal.innerHTML = carrito.reduce((acc, prod) => acc + prod.precio * prod.cantidad, 0)
+    precioTotal.innerHTML = separador(carrito.reduce((acc, prod) => acc + prod.precio * prod.cantidad, 0))
     console.log(carrito);
-
+    const contadorCarrito = document.getElementById('contadorCarrito');
     contadorCarrito.innerText = carrito.length;
 }
 
@@ -157,9 +166,9 @@ function registroform(e) {
             title: 'Debe completar todos los campos!',
         })
     } else {
-        sessionStorage.setItem("email", formulario.children[2].value)
-        sessionStorage.setItem("clave", formulario.children[4].value)
-        let formularioStorage = JSON.stringify(sessionStorage.getItem("email"))
+        localStorage.setItem("email", formulario.children[2].value)
+        localStorage.setItem("clave", formulario.children[4].value)
+        let formularioStorage = JSON.stringify(localStorage.getItem("email"))
         console.log(formularioStorage);
         Swal.fire({
             position: 'center',
@@ -180,7 +189,7 @@ formlogin.addEventListener('submit', loginform);
 function loginform(e) {
     let formulario = e.target;
     e.preventDefault(e);
-    if (((sessionStorage.getItem("email") == formulario.children[2].value)) && ((sessionStorage.getItem("clave") == formulario.children[4].value))) {
+    if (((localStorage.getItem("email") == formulario.children[2].value)) && ((localStorage.getItem("clave") == formulario.children[4].value))) {
         Swal.fire({
             position: 'center',
             icon: 'success',
@@ -189,9 +198,9 @@ function loginform(e) {
             timer: 1500
         })
         loginnone.classList.toggle("d-none")
-
+        cargarCarritoDeLocalStorage()
         /*         mostrarProductos(productos) */
-        /*         agruparAsync() */
+        /*   agruparAsync() */
     } else {
         Swal.fire({
             icon: 'error',
@@ -223,4 +232,19 @@ function aparecerr() {
 botonVaciar.addEventListener('click', () => {
     carrito.length = 0
     actualizarCarrito()
+    localStorage.clear();
 })
+
+
+function guardarCarritoEnLocalStorage() {
+    miLocalStorage.setItem('carrito', JSON.stringify(carrito));
+}
+
+function cargarCarritoDeLocalStorage() {
+    // ¿Existe un carrito previo guardado en LocalStorage?
+    if (miLocalStorage.getItem('carrito') !== null) {
+        // Carga la información
+        carrito = JSON.parse(miLocalStorage.getItem('carrito'));
+        actualizarCarrito()
+    }
+}
