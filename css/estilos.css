@@ -69,26 +69,8 @@ header a {
   color: #c8956e !important;
 }
 
-.header2 {
-  position: absolute;
-  text-decoration: none;
-  color: white;
-  z-index: 888;
-  background-color: #654342;
-  width: 400px;
-  height: 400px;
-  right: 0;
-  top: 20%;
-  border-radius: 15px;
-}
-
-.header2 li {
-  width: 200px;
-}
-
-.header2 a {
-  color: white;
-  text-decoration: none;
+.mover {
+  right: 0 !important;
 }
 
 .hero {
@@ -146,6 +128,16 @@ header a {
   z-index: 2;
 }
 
+h2 img {
+  filter: brightness(1.1);
+  mix-blend-mode: multiply;
+}
+
+#arreglo {
+  filter: brightness(1.1);
+  mix-blend-mode: multiply;
+}
+
 .modalCarrito {
   background-color: #462731;
   width: 320px;
@@ -198,8 +190,8 @@ header a {
 }
 
 .botoncitolindo {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   font-size: 40px;
   position: fixed;
   right: 3%;
@@ -217,111 +209,21 @@ header a {
   transform: scale(1.2);
 }
 
-/* MEDIA QUERYS */
-#hamburgesa {
-  display: none;
-}
-
-@media screen and (max-width: 960px) {
-  #ulheader {
-    display: none;
-  }
-  #hamburgesa {
-    display: block;
-    font-size: 40px;
-    color: #c8956e;
-    margin-right: 10%;
-  }
-}
-
-/* .footer{
-background-color: #24262b;
-color: white;
-height: 400px;
-display: flex;
-align-items: center;
-flex-direction: column;
-flex-wrap: nowrap;
-justify-content: center;
-}
-
- */
-body {
-  line-height: 1.5;
-  font-family: 'Poppins', sans-serif;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.container {
-  max-width: 1170px;
-  margin: auto;
-}
-
-.row {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-ul {
-  list-style: none;
-}
-
 .footer {
   background-color: #24262b;
-  padding: 70px 0;
+  color: white;
+  height: 280px;
 }
 
-.footer-col {
-  width: 25%;
-  padding: 0 15px;
-}
-
-.footer-col h4 {
+.footer__h4 {
   font-size: 18px;
   color: #ffffff;
   text-transform: capitalize;
-  margin-bottom: 35px;
   font-weight: 500;
   position: relative;
 }
 
-.footer-col h4::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -10px;
-  background-color: #e91e63;
-  height: 2px;
-  box-sizing: border-box;
-  width: 50px;
-}
-
-.footer-col ul li:not(:last-child) {
-  margin-bottom: 10px;
-}
-
-.footer-col ul li a {
-  font-size: 16px;
-  text-transform: capitalize;
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 300;
-  color: #bbbbbb;
-  display: block;
-  transition: all 0.3s ease;
-}
-
-.footer-col ul li a:hover {
-  color: #ffffff;
-  padding-left: 8px;
-}
-
-.footer-col .social-links a {
+.social-links a {
   display: inline-block;
   height: 40px;
   width: 40px;
@@ -334,22 +236,86 @@ ul {
   transition: all 0.5s ease;
 }
 
-.footer-col .social-links a:hover {
+.social-links a:hover {
   color: #24262b;
   background-color: #ffffff;
 }
 
-/*responsive*/
-@media (max-width: 767px) {
-  .footer-col {
-    width: 50%;
-    margin-bottom: 30px;
+.footer__ul {
+  list-style: none;
+}
+
+.footer__a {
+  font-size: 16px;
+  text-transform: capitalize;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 300;
+  color: #bbbbbb;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.footer__a:hover {
+  color: #ffffff;
+  padding-left: 8px;
+}
+
+footer .row {
+  height: 100%;
+}
+
+.suc__img {
+  width: 400px;
+  height: 300px;
+  border-radius: 10px;
+}
+
+/* MEDIA QUERYS */
+#hamburgesa {
+  display: none;
+}
+
+body {
+  background-color: #f7c5b93d !important;
+}
+
+@media screen and (max-width: 960px) {
+  #ulheader {
+    display: none;
+  }
+  #hamburgesa {
+    display: block;
+    font-size: 40px;
+    color: #c8956e;
+    margin-right: 10%;
+  }
+  #ulheader {
+    /* display: none; */
+    position: absolute;
+    right: +100%;
+    top: 16%;
+    width: 60%;
+    /* height: 40%; */
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    z-index: 99999;
+    background: #654342;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-evenly !important;
+    transition: all 0.5s;
   }
 }
 
-@media (max-width: 574px) {
-  .footer-col {
-    width: 100%;
+@media screen and (max-width: 500px) {
+  .suc__img {
+    width: 280px;
+    height: 250px;
+  }
+  #arreglo {
+    width: 300px;
   }
 }
 /*# sourceMappingURL=estilos.css.map */

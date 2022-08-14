@@ -2,7 +2,9 @@
 #hamburgesa{
     display: none;
 }
-
+body{
+    background-color: #f7c5b93d !important;
+    }
 
 @media screen and (max-width: 960px) {
     #ulheader{
@@ -15,4 +17,35 @@
         margin-right: 10%;
     
     }
+
+    #ulheader{
+            /* display: none; */
+    position: absolute;
+    right: +100%;
+    top: 16%;
+    width: 60%;
+    /* height: 40%; */
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    z-index: 99999;
+    background: #654342;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-evenly !important;
+    transition: all 0.5s;
+    }
+    }
+
+
+    @media screen and (max-width: 500px) {
+        .suc__img{
+            width: 280px;
+            height: 250px;
+        }
+        
+        #arreglo{
+            width: 300px;
+        }
+
     }
