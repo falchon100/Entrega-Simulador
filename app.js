@@ -19,8 +19,8 @@ const contenidoModal = document.getElementById("contenidoModal");
 const precioTotal = document.getElementById("precioTotal");
 const confirmarcompra = document.getElementById("confirmar-compra");
 const ulheader = document.getElementById("ulheader")
-
 let menu = document.getElementById("menu");
+
 //inicializo un array vacio para poder acumular los productos
 let carrito = [];
 
@@ -127,59 +127,58 @@ const actualizarCarrito = () => {
     precioTotal.innerHTML = separador(
         carrito.reduce((acc, prod) => acc + prod.precio * prod.cantidad, 0)
     );
-    console.log(carrito);
+    //utilizo la propiedad lenght para saber cuantas cosas tiene el carrito y lo muestro con un innertext
     const contadorCarrito = document.getElementById("contadorCarrito");
     contadorCarrito.innerText = carrito.length;
 };
 
 // ME LLAMO LOS BOTONES PARA LUEGO PODER ABRIR Y CERRAR EL MENU DE REGISTRO Y LOGIN
-let registro = document.getElementById("registro");
-let login = document.getElementById("login");
-let registronone = document.getElementById("registronone");
-let loginnone = document.getElementById("loginnone");
+const registro = document.getElementById("registro");
+const login = document.getElementById("login");
+const registronone = document.getElementById("registronone");
+const loginnone = document.getElementById("loginnone");
 
-registro.addEventListener("click", aparecer);
-
-function aparecer() {
+// CREO DOS EVENTOS PARA CUANDO SE HACE CLICK EN LOS BOTONES APARESCA O DESPARECAN LOS MODALES DEL REGISTRO Y LOGIN
+registro.addEventListener("click", () => {
     registronone.classList.toggle("d-none");
     loginnone.classList.add("d-none");
-}
-login.addEventListener("click", aparecer2);
+})
 
-function aparecer2() {
+login.addEventListener("click", () => {
     loginnone.classList.toggle("d-none");
     registronone.classList.add("d-none");
-}
+})
 
 // ME TRAIGO EL FORMULARIO Y LUEGO AL HACER SUBMIT EJECUTO
 // LA FUNCION REGISTROFORM QUE TOMA EL VALUE Y LO GUARDA EN EL SESSION
 
-let formregistro = document.getElementById("formRegistro");
+const formregistro = document.getElementById("formRegistro");
 formregistro.addEventListener("submit", registroform);
 
 // ME TRAIGO EL FORMULARIO LOGIN Y LUEGO DEL SUBMIT COMPARO LOS DATOS INGRESADOS EN EL SESSIONSTORE
 // CON LOS TARGET INGRESADOS EN EL FORMULARIO LOGIN
-let formlogin = document.getElementById("formLogin");
+const formlogin = document.getElementById("formLogin");
 formlogin.addEventListener("submit", loginform);
 
-abrirCarrito.addEventListener("click", aparecer3);
 
-function aparecer3() {
+// EVENTO PARA ABRIR Y CERRAR EL MODAL CARRITO
+abrirCarrito.addEventListener("click", () => {
     modalCarrito.classList.toggle("d-none");
-}
+})
 
-let hamburgesa = document.getElementById("hamburgesa");
+// CREO UN EVENTO PARA AGREGARLE O SACARLE  LA CLASE "MOVER" LA CUAL MUEVE LA LISTA -100%  Y LA PONE EN 0 
+const hamburgesa = document.getElementById("hamburgesa");
 hamburgesa.addEventListener("click", () => {
     ulheader.classList.toggle('mover')
 });
 
-
+//AL HACER CLICK AL BOTON RESETEO EL CARRITO EN 0 Y LO ACTUALIZO
 botonVaciar.addEventListener("click", () => {
     carrito.length = 0;
     actualizarCarrito();
     localStorage.clear();
 });
-
+// HAGO UN STRINGIFY DE CARRITO  Y SE GUARDA EN LA KEY CARRITO
 function guardarCarritoEnLocalStorage() {
     miLocalStorage.setItem("carrito", JSON.stringify(carrito));
 }
@@ -192,7 +191,7 @@ export function cargarCarritoDeLocalStorage() {
         actualizarCarrito();
     }
 }
-
+//AL HACER CLICK EN CONFIRMAR COMPRA SE LE HIZO UN EVENTO EL CUAL INFORMA EL VALOR DE TODOS LOS PRODUCTOS Y LUEGO SE RESETEA EL CARRITO EN 0
 confirmarcompra.addEventListener("click", () => {
     let sumita = separador(carrito.reduce((acc, prod) => acc + prod.precio * prod.cantidad, 0))
     Swal.fire({

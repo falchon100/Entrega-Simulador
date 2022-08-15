@@ -137,6 +137,25 @@ h2 img {
   mix-blend-mode: multiply;
 }
 
+.nosotros__p {
+  width: 70%;
+}
+
+.nosotros__p2 {
+  margin: 20px 0 20px 0;
+  font-style: oblique;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.nosotros__img {
+  border-radius: 25px;
+}
+
+.titulos {
+  font-family: DynaPuff, cursive;
+}
+
 .modalCarrito {
   background-color: #462731;
   width: 320px;
@@ -289,6 +308,9 @@ body {
     color: #c8956e;
     margin-right: 10%;
   }
+  .nosotros__p {
+    margin: 10px 0 10px 0;
+  }
   #ulheader {
     /* display: none; */
     position: absolute;
@@ -305,6 +327,9 @@ body {
     align-items: center;
     justify-content: space-evenly !important;
     transition: all 0.5s;
+  }
+  .hero {
+    background-position-x: 60%;
   }
 }
 

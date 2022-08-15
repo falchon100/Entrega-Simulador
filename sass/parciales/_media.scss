@@ -18,6 +18,10 @@ body{
     
     }
 
+    .nosotros__p{
+        margin: 10px 0 10px 0;
+    }
+
     #ulheader{
             /* display: none; */
     position: absolute;
@@ -35,6 +39,9 @@ body{
     justify-content: space-evenly !important;
     transition: all 0.5s;
     }
+    .hero{
+        background-position-x: 60%;
+}
     }
 
 
@@ -48,4 +55,4 @@ body{
             width: 300px;
         }
 
-    }
+}
