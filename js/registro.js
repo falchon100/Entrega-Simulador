@@ -1,8 +1,10 @@
 import {
     cargarCarritoDeLocalStorage,
-    agruparAsync
+    agruparAsync,
 } from "../app.js"
 
+let registro = document.getElementById("registro");
+let login = document.getElementById("login");
 //FUNCION QUE REGISTRA LOS DATOS INGRESADOS Y LOS GUARDA EN EL LOCALSTORAGE 
 export function registroform(e) {
     e.preventDefault(e);
@@ -26,6 +28,7 @@ export function registroform(e) {
             timer: 1500
         })
         registronone.classList.toggle("d-none")
+        registro.classList.add('d-none')
     }
 }
 
@@ -45,6 +48,8 @@ export function loginform(e) {
         loginnone.classList.toggle("d-none")
         cargarCarritoDeLocalStorage()
         /*         mostrarProductos(productos) */
+        login.classList.add('d-none')
+        registro.classList.add('d-none')
         agruparAsync()
     } else {
         Swal.fire({
