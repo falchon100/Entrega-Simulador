@@ -19,7 +19,11 @@ const contenidoModal = document.getElementById("contenidoModal");
 const precioTotal = document.getElementById("precioTotal");
 const confirmarcompra = document.getElementById("confirmar-compra");
 const ulheader = document.getElementById("ulheader")
-let menu = document.getElementById("menu");
+const menu = document.getElementById("menu");
+const registro = document.getElementById("registro");
+const login = document.getElementById("login");
+const registronone = document.getElementById("registronone");
+const loginnone = document.getElementById("loginnone");
 
 //inicializo un array vacio para poder acumular los productos
 let carrito = [];
@@ -132,11 +136,7 @@ const actualizarCarrito = () => {
     contadorCarrito.innerText = carrito.length;
 };
 
-// ME LLAMO LOS BOTONES PARA LUEGO PODER ABRIR Y CERRAR EL MENU DE REGISTRO Y LOGIN
-const registro = document.getElementById("registro");
-const login = document.getElementById("login");
-const registronone = document.getElementById("registronone");
-const loginnone = document.getElementById("loginnone");
+
 
 // CREO DOS EVENTOS PARA CUANDO SE HACE CLICK EN LOS BOTONES APARESCA O DESPARECAN LOS MODALES DEL REGISTRO Y LOGIN
 registro.addEventListener("click", () => {
