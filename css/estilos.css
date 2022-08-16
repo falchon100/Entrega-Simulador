@@ -221,6 +221,7 @@ h2 img {
   color: #4b3131;
   background-image: radial-gradient(circle at 50% -20.71%, #ffd679 0, #ffc776 12.5%, #fbb674 25%, #eca371 37.5%, #d8906c 50%, #c27e67 62.5%, #af6f62 75%, #9e645e 87.5%, #8f5a5a 100%);
   text-shadow: 4px 4px 10px #4b3131;
+  z-index: 999999;
 }
 
 .botoncitolindo:hover {
