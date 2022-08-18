@@ -159,7 +159,7 @@ h2 img {
 .modalCarrito {
   background-color: #462731;
   width: 320px;
-  height: 470px;
+  min-height: 400px;
   border-radius: 15px;
   position: fixed;
   right: 0;
