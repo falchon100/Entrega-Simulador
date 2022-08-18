@@ -6,7 +6,7 @@
     position: fixed;
     right: 0;
     top: 5;
-    z-index: 99999;
+    z-index: 100;
     color :#c8956e;
     display: flex;
     flex-wrap: wrap;
@@ -59,7 +59,6 @@ font-size: 40px;
 position: fixed;
 right: 3%;
 bottom: 3%;
-z-index: 9999;
 border-radius: 50%;
 border: 0;
 transition: all 0.2s;
@@ -71,4 +70,8 @@ z-index: 999999;
 
 .botoncitolindo:hover{
     transform: $zoom;
+}
+
+.Precioproducto{
+    font-family: 'DynaPuff';
 }

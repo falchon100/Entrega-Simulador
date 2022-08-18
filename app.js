@@ -194,22 +194,22 @@ export function cargarCarritoDeLocalStorage() {
 //AL HACER CLICK EN CONFIRMAR COMPRA SE LE HIZO UN EVENTO EL CUAL INFORMA EL VALOR DE TODOS LOS PRODUCTOS Y LUEGO SE RESETEA EL CARRITO EN 0
 confirmarcompra.addEventListener("click", () => {
     let sumita = separador(carrito.reduce((acc, prod) => acc + prod.precio * prod.cantidad, 0))
-    if (carrito.length==0){ 
+    if (carrito.length == 0) {
         Swal.fire({
             icon: 'error',
             title: 'Lo siento!',
             text: 'no cargaste nada en el carrito!',
-          })
-    }else{ 
-    Swal.fire({
-        title: 'Confirmamos tu pedido!',
-        text: `el importe a abonar es de $${sumita}`,
-        imageUrl: "./img/cafe3.jpg",
-        imageWidth: 400,
-        imageHeight: 320,
-        imageAlt: 'Custom image',
-    })
-    carrito = [];
-    actualizarCarrito()
-}
+        })
+    } else {
+        Swal.fire({
+            title: 'Confirmamos tu pedido!',
+            text: `el importe a abonar es de $${sumita}`,
+            imageUrl: "./img/cafe3.jpg",
+            imageWidth: 400,
+            imageHeight: 320,
+            imageAlt: 'Custom image',
+        })
+        carrito = [];
+        actualizarCarrito()
+    }
 })
